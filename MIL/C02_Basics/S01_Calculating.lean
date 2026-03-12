@@ -123,6 +123,7 @@ example (a b : ℝ) : (a + b) * (a - b) = a ^ 2 - b ^ 2 := by
 #check add_sub a b c
 #check sub_sub a b c
 #check add_zero a
+#check sub_self a
 
 end
 
@@ -134,7 +135,7 @@ variable (a b c d : ℝ)
 example (a b c d : ℝ) (hyp : c = d * a + b) (hyp' : b = a * d) : c = 2 * a * d := by
   rw [hyp'] at hyp
   rw [mul_comm d a] at hyp
-  rw [← two_mul (a * d)] at hyp
+  rw [← two_mul (a * d)] at hyp --重要语法
   rw [← mul_assoc 2 a d] at hyp
   exact hyp
 
